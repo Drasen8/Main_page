@@ -54,6 +54,36 @@ ng e2e
 
 Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
 
+## Deploying to GitHub Pages
+
+Para publicar tu web en GitHub Pages:
+
+1. **Construye el proyecto para producción:**
+   ```bash
+   ng build
+   ```
+   Esto generará los archivos estáticos en la carpeta `dist/`.
+
+2. **Sube los archivos a GitHub:**
+   - Crea un repositorio en GitHub y sube todo tu proyecto.
+   - Sube el contenido de la carpeta `dist/` a la rama `gh-pages` (puedes usar una herramienta como `gh-pages` o hacerlo manualmente).
+
+3. **Configura GitHub Pages:**
+   - Ve a la configuración del repositorio en GitHub.
+   - En la sección "Pages", selecciona la rama `gh-pages` y la carpeta raíz (`/`).
+
+4. **Ajusta rutas si es necesario:**
+   - Si tu web no se muestra correctamente, revisa la configuración de rutas en Angular para usar rutas relativas.
+   - Puedes modificar el archivo `angular.json` para establecer el `baseHref` correcto:
+     ```json
+     "baseHref": "/<nombre-repo>/"
+     ```
+
+5. **Accede a tu web:**
+   - Espera unos minutos y accede a `https://<tu-usuario>.github.io/<nombre-repo>/`.
+
+Más información: [Guía oficial de GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages).
+
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
