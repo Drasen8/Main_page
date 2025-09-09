@@ -3,12 +3,21 @@
 <nav class="navbar">
   <div class="nav-container">
     <div class="nav-logo">Marc Sendra</div>
-    <div class="nav-menu">
-      <a href="#inicio" class="nav-link">Inicio</a>
-      <a href="#sobre-mi" class="nav-link">Sobre mí</a>
-      <a href="#proyectos" class="nav-link">Proyectos</a>
-      <a href="#habilidades" class="nav-link">Habilidades</a>
-      <a href="#contacto" class="nav-link">Contacto</a>
+    
+    <!-- Botón hamburger para móviles -->
+    <button class="nav-toggle" onclick="toggleMobileMenu()" aria-label="Toggle navigation">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+    
+    <!-- Menú de navegación -->
+    <div class="nav-menu" id="navMenu">
+      <a href="#inicio" class="nav-link" onclick="closeMobileMenu()">Inicio</a>
+      <a href="#sobre-mi" class="nav-link" onclick="closeMobileMenu()">Sobre mí</a>
+      <a href="#proyectos" class="nav-link" onclick="closeMobileMenu()">Proyectos</a>
+      <a href="#habilidades" class="nav-link" onclick="closeMobileMenu()">Habilidades</a>
+      <a href="#contacto" class="nav-link" onclick="closeMobileMenu()">Contacto</a>
     </div>
   </div>
 </nav>
@@ -307,4 +316,40 @@
     <p>&copy; 2024 Marc Sendra. Todos los derechos reservados.</p>
   </div>
 </footer>
+
+<script>
+function toggleMobileMenu() {
+  const navMenu = document.getElementById('navMenu');
+  const navToggle = document.querySelector('.nav-toggle');
+  
+  navMenu.classList.toggle('active');
+  navToggle.classList.toggle('active');
+}
+
+function closeMobileMenu() {
+  const navMenu = document.getElementById('navMenu');
+  const navToggle = document.querySelector('.nav-toggle');
+  
+  navMenu.classList.remove('active');
+  navToggle.classList.remove('active');
+}
+
+// Cerrar menú al hacer click fuera de él
+document.addEventListener('click', function(event) {
+  const navMenu = document.getElementById('navMenu');
+  const navToggle = document.querySelector('.nav-toggle');
+  const isClickInsideNav = navToggle.contains(event.target) || navMenu.contains(event.target);
+  
+  if (!isClickInsideNav && navMenu.classList.contains('active')) {
+    closeMobileMenu();
+  }
+});
+
+// Cerrar menú al redimensionar ventana
+window.addEventListener('resize', function() {
+  if (window.innerWidth > 768) {
+    closeMobileMenu();
+  }
+});
+</script>
 
