@@ -2,22 +2,22 @@
 <!-- Navegación -->
 <nav class="navbar">
   <div class="nav-container">
-    <div class="nav-logo">Marc Sendra</div>
+    <div class="nav-logo">Marc Sendra Andrés</div>
     
     <!-- Botón hamburger para móviles -->
-    <button class="nav-toggle" onclick="toggleMobileMenu()" aria-label="Toggle navigation">
+    <button class="nav-toggle" [class.active]="isMobileMenuOpen()" (click)="toggleMobileMenu()" aria-label="Toggle navigation">
       <span class="hamburger-line"></span>
       <span class="hamburger-line"></span>
       <span class="hamburger-line"></span>
     </button>
     
     <!-- Menú de navegación -->
-    <div class="nav-menu" id="navMenu">
-      <a href="#inicio" class="nav-link" onclick="closeMobileMenu()">Inicio</a>
-      <a href="#sobre-mi" class="nav-link" onclick="closeMobileMenu()">Sobre mí</a>
-      <a href="#proyectos" class="nav-link" onclick="closeMobileMenu()">Proyectos</a>
-      <a href="#habilidades" class="nav-link" onclick="closeMobileMenu()">Habilidades</a>
-      <a href="#contacto" class="nav-link" onclick="closeMobileMenu()">Contacto</a>
+    <div class="nav-menu" [class.active]="isMobileMenuOpen()">
+      <a href="#inicio" class="nav-link" (click)="closeMobileMenu()">Inicio</a>
+      <a href="#sobre-mi" class="nav-link" (click)="closeMobileMenu()">Sobre mí</a>
+      <a href="#proyectos" class="nav-link" (click)="closeMobileMenu()">Proyectos</a>
+      <a href="#habilidades" class="nav-link" (click)="closeMobileMenu()">Habilidades</a>
+      <a href="#contacto" class="nav-link" (click)="closeMobileMenu()">Contacto</a>
     </div>
   </div>
 </nav>
@@ -27,12 +27,12 @@
   <div class="hero-content">
     <div class="hero-text">
       <h1 class="hero-title">
-        <span class="gradient-text">Marc Sendra</span>
+        <span class="gradient-text">Marc Sendra Andrés</span>
       </h1>
       <h2 class="hero-subtitle">Desarrollador Full Stack</h2>
       <p class="hero-description">
         Apasionado por crear experiencias web modernas y funcionales. 
-        Especializado en Angular, React, Node.js y tecnologías emergentes.
+        Aprendiendo actualmente Angular, React, Node.js y tecnologías emergentes.
       </p>
       <div class="hero-buttons">
         <a href="#proyectos" class="btn btn-primary">Ver Proyectos</a>
@@ -68,17 +68,17 @@
     <div class="about-content">
       <div class="about-text">
         <p>
-          Soy un desarrollador web con formación en <strong>Ingeniería Informática</strong> 
-          y experiencia en el desarrollo de aplicaciones web modernas. Me especializo en 
-          crear interfaces de usuario intuitivas y sistemas backend robustos.
+          Soy un desarrollador web con formación en <strong>Desarrollo de aplicaciones web</strong> 
+          buscando aplicar mis conocimientos. Estoy interesado sobretodo en front end aunque me 
+          atrae la idea de trabajar de full stack.
         </p>
         <div class="about-stats">
           <div class="stat">
-            <span class="stat-number">2+</span>
+            <span class="stat-number">0+</span>
             <span class="stat-label">Años de Experiencia</span>
           </div>
           <div class="stat">
-            <span class="stat-number">15+</span>
+            <span class="stat-number">4+</span>
             <span class="stat-label">Proyectos Completados</span>
           </div>
           <div class="stat">
@@ -89,17 +89,22 @@
       </div>
       <div class="about-timeline">
         <div class="timeline-item">
-          <div class="timeline-date">2023</div>
+          <div class="timeline-date">2024</div>
           <div class="timeline-content">
-            <h4>Desarrollador Frontend</h4>
-            <p>Especialización en Angular y React</p>
+            <h4>Desarrollador Web Practicas</h4>
+            <p>Corección de errores con JavaScript, PHP, HTML y css.</p>
+            <p>Creación de webs desde cero con WordPress y PrestaShop. </p>
+            <p>Posicionamiento web (SEO) con herramientas especializadas. </p>
           </div>
         </div>
         <div class="timeline-item">
-          <div class="timeline-date">2022</div>
+          <div class="timeline-date">2022-2025</div>
           <div class="timeline-content">
-            <h4>Estudios en Ingeniería Informática</h4>
+            <h4>Grado Superior en Desarrollo de aplicaciones web </h4>
             <p>Fundamentos de programación y desarrollo web</p>
+            <p>Desarrollo de aplicaciones web con HTML, CSS y JavaScript</p>
+            <p>Creación de APIs RESTful con Node.js y Express</p>
+            <p>Gestión de bases de datos con Mysql</p>
           </div>
         </div>
       </div>
@@ -182,28 +187,28 @@
           <h3>Frontend</h3>
           <div class="skill-list">
             <div class="skill-item">
+              <img src="icons/file_type_angular_icon_130754.png" alt="Angular" class="skill-logo">
               <span class="skill-name">Angular</span>
-              <div class="skill-bar">
-                <div class="skill-progress" style="width: 90%"></div>
-              </div>
             </div>
             <div class="skill-item">
+              <img src="icons/react_original_logo_icon_146374.png" alt="React" class="skill-logo">
               <span class="skill-name">React</span>
-              <div class="skill-bar">
-                <div class="skill-progress" style="width: 85%"></div>
-              </div>
             </div>
             <div class="skill-item">
+              <img src="icons/typescript_original_logo_icon_146317.png" alt="TypeScript" class="skill-logo">
               <span class="skill-name">TypeScript</span>
-              <div class="skill-bar">
-                <div class="skill-progress" style="width: 88%"></div>
-              </div>
             </div>
             <div class="skill-item">
+              <img src="icons/javascript_icon_130900.png" alt="JavaScript" class="skill-logo">
+              <span class="skill-name">JavaScript</span>
+            </div>
+            <div class="skill-item">
+              <img src="icons/css3_icon.png" alt="CSS/SCSS" class="skill-logo">
               <span class="skill-name">CSS/SCSS</span>
-              <div class="skill-bar">
-                <div class="skill-progress" style="width: 92%"></div>
-              </div>
+            </div>
+            <div class="skill-item">
+              <img src="icons/wordpress_icon.png" alt="WordPress" class="skill-logo">
+              <span class="skill-name">WordPress</span>
             </div>
           </div>
         </div>
@@ -212,28 +217,20 @@
           <h3>Backend</h3>
           <div class="skill-list">
             <div class="skill-item">
+              <img src="icons/nodejs_icon.png" alt="Node.js" class="skill-logo">
               <span class="skill-name">Node.js</span>
-              <div class="skill-bar">
-                <div class="skill-progress" style="width: 80%"></div>
-              </div>
             </div>
             <div class="skill-item">
+              <img src="icons/express_icon.png" alt="Express" class="skill-logo">
               <span class="skill-name">Express</span>
-              <div class="skill-bar">
-                <div class="skill-progress" style="width: 75%"></div>
-              </div>
             </div>
             <div class="skill-item">
-              <span class="skill-name">MongoDB</span>
-              <div class="skill-bar">
-                <div class="skill-progress" style="width: 70%"></div>
-              </div>
+              <img src="icons/mysql_icon.png" alt="MySQL" class="skill-logo">
+              <span class="skill-name">MySQL</span>
             </div>
             <div class="skill-item">
-              <span class="skill-name">PostgreSQL</span>
-              <div class="skill-bar">
-                <div class="skill-progress" style="width: 65%"></div>
-              </div>
+              <img src="icons/java_icon.png" alt="Java" class="skill-logo">
+              <span class="skill-name">Java</span>
             </div>
           </div>
         </div>
@@ -242,22 +239,16 @@
           <h3>Herramientas</h3>
           <div class="skill-list">
             <div class="skill-item">
+              <img src="icons/git_icon.png" alt="Git" class="skill-logo">
               <span class="skill-name">Git</span>
-              <div class="skill-bar">
-                <div class="skill-progress" style="width: 85%"></div>
-              </div>
             </div>
             <div class="skill-item">
+              <img src="icons/docker_icon.png" alt="Docker" class="skill-logo">
               <span class="skill-name">Docker</span>
-              <div class="skill-bar">
-                <div class="skill-progress" style="width: 60%"></div>
-              </div>
             </div>
             <div class="skill-item">
+              <img src="icons/aws_icon.png" alt="AWS" class="skill-logo">
               <span class="skill-name">AWS</span>
-              <div class="skill-bar">
-                <div class="skill-progress" style="width: 55%"></div>
-              </div>
             </div>
           </div>
         </div>
@@ -317,39 +308,5 @@
   </div>
 </footer>
 
-<script>
-function toggleMobileMenu() {
-  const navMenu = document.getElementById('navMenu');
-  const navToggle = document.querySelector('.nav-toggle');
-  
-  navMenu.classList.toggle('active');
-  navToggle.classList.toggle('active');
-}
 
-function closeMobileMenu() {
-  const navMenu = document.getElementById('navMenu');
-  const navToggle = document.querySelector('.nav-toggle');
-  
-  navMenu.classList.remove('active');
-  navToggle.classList.remove('active');
-}
-
-// Cerrar menú al hacer click fuera de él
-document.addEventListener('click', function(event) {
-  const navMenu = document.getElementById('navMenu');
-  const navToggle = document.querySelector('.nav-toggle');
-  const isClickInsideNav = navToggle.contains(event.target) || navMenu.contains(event.target);
-  
-  if (!isClickInsideNav && navMenu.classList.contains('active')) {
-    closeMobileMenu();
-  }
-});
-
-// Cerrar menú al redimensionar ventana
-window.addEventListener('resize', function() {
-  if (window.innerWidth > 768) {
-    closeMobileMenu();
-  }
-});
-</script>
 
