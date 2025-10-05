@@ -9,6 +9,11 @@ import { Component, signal, OnInit, HostListener } from '@angular/core';
 export class App implements OnInit {
   protected readonly title = signal('Marc Sendra Portfolio');
   protected isMobileMenuOpen = signal(false);
+  
+  // Modal de imagen
+  protected isImageModalOpen = signal(false);
+  protected modalImageSrc = signal('');
+  protected modalImageAlt = signal('');
 
   ngOnInit() {
     // Initialization logic if needed
@@ -20,6 +25,21 @@ export class App implements OnInit {
 
   closeMobileMenu() {
     this.isMobileMenuOpen.set(false);
+  }
+
+  // Funciones del modal de imagen
+  openImageModal(imageSrc: string, imageAlt: string = 'Imagen del proyecto') {
+    this.modalImageSrc.set(imageSrc);
+    this.modalImageAlt.set(imageAlt);
+    this.isImageModalOpen.set(true);
+    document.body.style.overflow = 'hidden'; // Prevenir scroll
+  }
+
+  closeImageModal() {
+    this.isImageModalOpen.set(false);
+    this.modalImageSrc.set('');
+    this.modalImageAlt.set('');
+    document.body.style.overflow = 'auto'; // Restaurar scroll
   }
 
   // Cerrar menú al redimensionar ventana
@@ -43,6 +63,14 @@ export class App implements OnInit {
       if (!isClickInsideNav && this.isMobileMenuOpen()) {
         this.closeMobileMenu();
       }
+    }
+  }
+
+  // Cerrar modal con tecla Escape
+  @HostListener('document:keydown.escape')
+  onEscapeKey() {
+    if (this.isImageModalOpen()) {
+      this.closeImageModal();
     }
   }
 }

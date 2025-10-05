@@ -41,7 +41,9 @@
     </div>
     <div class="hero-image">
       <div class="profile-card">
-        <div class="profile-avatar">MS</div>
+        <div class="profile-avatar">
+          <img src="icons/foto_mia.jpg" alt="" class="avatar-img">
+        </div>
         <div class="floating-icons">
           <div class="icon icon-js">
             <img src="icons/javascript_icon_130900.png" alt="JavaScript" />
@@ -119,7 +121,7 @@
     <div class="projects-grid">
       <div class="project-card">
         <div class="project-image">
-          <img src="Proyectos/gestor_actividades.PNG" alt="imagen ejemplo proyecto">
+          <img src="Proyectos/gestor_actividades.PNG" alt="imagen ejemplo proyecto" (click)="openImageModal('Proyectos/gestor_actividades.PNG')">
         </div>
         <div class="project-content">
           <h3>Gestor de Tareas</h3>
@@ -138,43 +140,8 @@
         </div>
       </div>
 
-      <div class="project-card">
-        <div class="project-image">
-          <div class="project-placeholder">📋</div>
-        </div>
-        <div class="project-content">
-          <h3>Gestor de Tareas</h3>
-          <p>Aplicación para gestión de proyectos y tareas con interfaz intuitiva</p>
-          <div class="project-tech">
-            <span class="tech-tag">React</span>
-            <span class="tech-tag">Node.js</span>
-            <span class="tech-tag">MongoDB</span>
-          </div>
-          <div class="project-links">
-            <a href="#" class="project-link">Ver Demo</a>
-            <a href="#" class="project-link">Código</a>
-          </div>
-        </div>
-      </div>
+    
 
-      <div class="project-card">
-        <div class="project-image">
-          <div class="project-placeholder">📝</div>
-        </div>
-        <div class="project-content">
-          <h3>Blog Técnico</h3>
-          <p>Plataforma de blog con sistema de comentarios y gestión de contenido</p>
-          <div class="project-tech">
-            <span class="tech-tag">Next.js</span>
-            <span class="tech-tag">Prisma</span>
-            <span class="tech-tag">PostgreSQL</span>
-          </div>
-          <div class="project-links">
-            <a href="#" class="project-link">Ver Demo</a>
-            <a href="#" class="project-link">Código</a>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -299,12 +266,23 @@
   </div>
 </section>
 
+<!-- Modal para imagen en pantalla completa -->
+<div class="image-modal" [class.active]="isImageModalOpen()" (click)="closeImageModal()">
+  <span class="modal-close" (click)="closeImageModal()">&times;</span>
+  @if (modalImageSrc()) {
+    <img [src]="modalImageSrc()" [alt]="modalImageAlt()" (click)="$event.stopPropagation()">
+  }
+  <div class="modal-overlay-text">Haz clic fuera de la imagen para cerrar</div>
+</div>
+
+
 <!-- Footer -->
 <footer class="footer">
   <div class="container">
     <p>&copy; 2024 Marc Sendra. Todos los derechos reservados.</p>
   </div>
 </footer>
+
 
 
 
